@@ -74,7 +74,7 @@ class DominoesGame(object):
 
     # Required
     def get_best_move(self, vertical, limit):
-        v = self.get_max_value(self, vertical, vertical, limit, -sys.maxint, sys.maxint)
+        v = self.get_max_value(self, vertical, vertical, limit, -sys.maxsize, sys.maxsize)
         return (self.moveout, v, self.leaf_count)
 
     def get_value(self, vertical):
@@ -85,7 +85,7 @@ class DominoesGame(object):
             root.leaf_count += 1
             return self.get_value(root_vertical)
 
-        v = -sys.maxint
+        v = -sys.maxsize
         for move, game in self.successors(vertical):
             g = game.get_min_value(root, root_vertical, not vertical, limit-1, alpha, beta)
             if v < g:
@@ -101,7 +101,7 @@ class DominoesGame(object):
             root.leaf_count += 1
             return self.get_value(root_vertical)
 
-        v = sys.maxint
+        v = sys.maxsize
         for move, game in self.successors(vertical):
             g = game.get_max_value(root, root_vertical, not vertical, limit-1, alpha, beta)
             if v > g:
