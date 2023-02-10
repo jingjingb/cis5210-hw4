@@ -117,7 +117,7 @@ class DominoesGame(object):
 # Section 2: Feedback
 ############################################################
 feedback_question_1 = """
-Much much better than last hw.
+12
 """
 feedback_question_2 = """
 How to design a iterative way to cal the max or min of a node. This could be a hint.
